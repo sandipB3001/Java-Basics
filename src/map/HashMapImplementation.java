@@ -11,6 +11,7 @@ public class HashMapImplementation {
 	public void putData(Object key, Object value) {
 		Integer hashValue = getHashCode(key);
 		Integer index = getIndex(hashValue);
+		System.out.println(index);
 		Node node = new Node();
 		node.setKey(key);
 		node.setValue(value);
@@ -38,7 +39,7 @@ public class HashMapImplementation {
 			Node temp = nodes[index].getNext();
 			while(null!=temp) {
 				if(temp.getHashValue().equals(hashCode) && temp.getKey().equals(key))
-					return node.getValue();
+					return temp.getValue();
 				temp = temp.getNext();
 			}
 		}
